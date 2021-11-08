@@ -1,4 +1,4 @@
-import { createMuiTheme } from "@material-ui/core/styles"
+import { createTheme } from "@material-ui/core/styles"
 
 const primary = {}
 const secondary = {}
@@ -6,7 +6,7 @@ const error = {}
 
 const spacing = (factor) => factor * 8
 
-export default createMuiTheme({
+export default createTheme({
   spacing,
   palette: {},
   typography: {},
