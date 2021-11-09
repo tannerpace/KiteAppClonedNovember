@@ -174,12 +174,15 @@ const LoginForm = ({ setIsLogin }) => {
           </form>
         )}
         {authContext.authUser ? (
-          <h1> authUser Logged In!</h1>
+          <>
+            <h1> authUser Logged In!</h1>
+            <pre>{JSON.stringify(authContext.authUser)}</pre>
+          </>
         ) : (
           <h1>authUser Not Logged in</h1>
         )}
-        {authContext.user ? (
-          <h1> Token Logged In!</h1>
+        {authContext.token ? (
+          <h1> Token Logged In!{JSON.stringify(authContext.token)}</h1>
         ) : (
           <h1>Token Not Logged in</h1>
         )}
