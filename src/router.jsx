@@ -38,6 +38,11 @@ export const routeConfig = [
     "component": "SignUp",
     "protected": false
   }
+  , {
+    "path": "/location/:id",
+    "component": "Location",
+    "protected": false
+  }
 ]
 export const Router = ({ routes, match }) => {
   let path = ""

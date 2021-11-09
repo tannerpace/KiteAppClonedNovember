@@ -16,7 +16,7 @@ import {
 import { getLocations } from "actions/Location/locations"
 import React, { useState } from "react"
 import { useQuery } from "react-query"
-import { useHistory, useLocation } from "react-router"
+import { useHistory } from "react-router"
 
 import useStyles from "./styles"
 
