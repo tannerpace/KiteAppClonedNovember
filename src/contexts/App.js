@@ -1,10 +1,13 @@
+import { login } from "actions/authentication"
 import { isEmpty } from "lodash"
 import Deferred from "promise-deferred"
 import PropTypes from "prop-types"
 import { useEffect, useRef, useState } from "react"
 import { createContext } from "react"
 import { useIndexedDB } from "react-indexed-db"
+import { useMutation, useQuery, useQueryClient } from "react-query"
 
+import api from "../store/api"
 const AppContext = createContext()
 export default AppContext
 
@@ -90,9 +93,12 @@ export const AppContainer = ({ children }) => {
   }
 
   const setAuthData = ({ token, account }) => {
+    console.log(`token was`, token)
+    console.log(`setting auth data for account`, account)
     clear().then(() => {
       add({ name: "token", token, account }).then(
         () => {
+          api.defaults.headers.common["Authorization"] = token
           setAuthUserState(account)
           setToken(token)
         },
@@ -108,6 +114,7 @@ export const AppContainer = ({ children }) => {
     getAll()
       .then((res) => {
         if (!isEmpty(res)) {
+          api.defaults.headers.common["Authorization"] = res[0].token
           setAuthUserState(res[0].account)
           setToken(res[0].token)
         }
@@ -117,6 +124,7 @@ export const AppContainer = ({ children }) => {
       })
   }, [])
 
+  const loginMutation = useMutation(login)
   return (
     <AppContext.Provider
       value={{
@@ -128,6 +136,7 @@ export const AppContainer = ({ children }) => {
         closeDialog,
         snackBar,
         openSnackBar,
+        loginMutation,
       }}
     >
       {shouldRender && children}

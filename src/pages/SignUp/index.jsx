@@ -1,6 +1,7 @@
 import { Box } from "@material-ui/core"
 import { withStyles } from "@material-ui/core/styles"
 import LoginForm from "components/Forms/LoginForm"
+import SignUpForm from "components/Forms/SignUpForm"
 import Page from "pages/Page"
 
 import styles from "./styles"
@@ -11,7 +12,6 @@ const Index = () => {
 
   return (
     <Page>
-      <h1>src/pages/Login/index.jsx</h1>
       <Box
         height="100vh"
         width="100vw"
@@ -19,7 +19,7 @@ const Index = () => {
         alignItems="center"
         justifyContent="center"
       >
-        <LoginForm />
+        <SignUpForm />
       </Box>
     </Page>
   )
