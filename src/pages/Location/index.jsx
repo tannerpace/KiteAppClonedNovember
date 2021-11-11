@@ -12,7 +12,6 @@ const Index = () => {
 
   return (
     <Page>
-      <h1>src/pages/Location/index.jsx</h1>
       <Box
         height="100vh"
         width="100vw"
