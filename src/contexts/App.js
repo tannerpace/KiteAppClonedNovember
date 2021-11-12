@@ -19,7 +19,6 @@ export const AppContainer = ({ children }) => {
   const [shouldRender, setShouldRender] = useState(false)
   const [dialogs, setDialogsState] = useState({})
   const dialogPromises = useRef({})
-
   const [snackBar, setSnackbar] = useState({
     open: false,
     message: "There was an error",
@@ -123,7 +122,15 @@ export const AppContainer = ({ children }) => {
         setShouldRender(true)
       })
   }, [])
-
+  const removeAuthToken = () => {
+    return new Promise((resolve, reject) => {
+      clear().then(() => {
+        setToken("")
+        resolve()
+        // remove queries from cache (helps cleaning up when logging back in)
+      })
+    })
+  }
   const loginMutation = useMutation(login)
   return (
     <AppContext.Provider
@@ -137,6 +144,7 @@ export const AppContainer = ({ children }) => {
         snackBar,
         openSnackBar,
         loginMutation,
+        removeAuthToken,
       }}
     >
       {shouldRender && children}

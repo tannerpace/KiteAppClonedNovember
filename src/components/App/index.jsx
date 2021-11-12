@@ -4,6 +4,7 @@ import ForgotPasswordDialog from "dialogs/ForgotPassword"
 import { withRouter } from "react-router"
 import Router, { routeConfig } from "router"
 
+import Header from "./Header"
 import useStyles from "./styles"
 
 const App = () => {
@@ -11,6 +12,7 @@ const App = () => {
 
   return (
     <AppContainer>
+      <Header />
       <Router routes={routeConfig} />
       <div id="dialog-holder">
         {/* LEAVE THIS IN PLACE FOR DIALOGS TO POPULATE INTO */}

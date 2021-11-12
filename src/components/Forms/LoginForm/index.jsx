@@ -22,7 +22,7 @@ import * as yup from "yup"
 
 import App from "../../../contexts/App"
 import serialize from "../../../store/serialize"
-import useStyles from "./styles"
+import styles from "./styles"
 const schema = yup
   .object({
     userName: yup.string().required(),
@@ -39,7 +39,7 @@ const schema = yup
 
 const LoginForm = ({ setIsLogin }) => {
   const [visibility, setVisibility] = useState(true)
-  const classes = useStyles()
+  const classes = styles()
   const queryClient = useQueryClient()
   const [loading, setLoading] = useState(false)
   const authContext = useContext(App)
