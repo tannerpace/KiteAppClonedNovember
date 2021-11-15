@@ -33,6 +33,7 @@ export const routeConfig = [
     "component": "Table",
     "protected": false
   },
+
   {
     "path": "/signup",
     "component": "SignUp",
@@ -42,6 +43,11 @@ export const routeConfig = [
     "path": "/location/:id",
     "component": "Location",
     "protected": false
+  },
+  {
+    "path": "/profile",
+    "component": "Profile",
+    "protected": true
   }
 ]
 export const Router = ({ routes, match }) => {

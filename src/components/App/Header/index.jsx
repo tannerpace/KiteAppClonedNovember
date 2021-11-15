@@ -28,10 +28,7 @@ const Header = () => {
   }
 
   const handleLogOut = () => {
-    appContext.setAuthData({ token: "", account: {} })
-    appContext.openSnackBar({
-      message: "You have logged out successfully!",
-    })
+    appContext.handleLogOut()
   }
 
   return (
@@ -39,21 +36,14 @@ const Header = () => {
       <AppBar position="static">
         <Toolbar>
           <PositionedMenu />
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-            sx={{ mr: 2 }}
-          >
-            <MenuIcon />
-          </IconButton>
 
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             Kite App
           </Typography>
           {appContext?.authUser ? (
-            <Button color="inherit">{appContext?.authUser.userName}</Button>
+            <Button onClick={handleLogOut} color="inherit">
+              {appContext?.authUser.userName} Logout
+            </Button>
           ) : (
             <Button onClick={handleNavLogin} color="inherit">
               Login

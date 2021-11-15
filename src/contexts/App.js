@@ -131,10 +131,22 @@ export const AppContainer = ({ children }) => {
       })
     })
   }
+
+  const handleLogOut = () => {
+    if (token) {
+      removeAuthToken()
+      setAuthData({ token: "", account: "" })
+      clear().finally(() => {
+        window.location.href = "/"
+      })
+    }
+  }
+
   const loginMutation = useMutation(login)
   return (
     <AppContext.Provider
       value={{
+        handleLogOut,
         setAuthData,
         token,
         authUser,

@@ -38,3 +38,7 @@ export const getUserById = (id) => {
 export const postPost = (data) => {
   return api.post("/app/user/post", data).then((res) => res.data)
 }
+
+export const updateUserProfile = (data) => {
+  return api.put("/app/user/updateprofile", data).then((res) => res.data)
+}
