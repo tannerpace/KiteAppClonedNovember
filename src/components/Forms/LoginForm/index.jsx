@@ -25,10 +25,10 @@ import serialize from "../../../store/serialize"
 import styles from "./styles"
 const schema = yup
   .object({
-    userName: yup.string().required(),
+    userName: yup.string().required("  ⚠ UserName Required!"),
     password: yup
       .string()
-      .required("No password provided.")
+      .required(" ⚠ Password Required!")
       .min(8, "Password is too short - should be 8 chars minimum.")
       .matches(
         /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
@@ -90,8 +90,6 @@ const LoginForm = ({ setIsLogin }) => {
     })
   }
 
-  console.log(`authContext.authUser`, authContext.authUser)
-
   useEffect(() => {
     if (isInitialMount.current) {
       isInitialMount.current = false
@@ -104,23 +102,24 @@ const LoginForm = ({ setIsLogin }) => {
   }, [authContext])
 
   return (
-    <Box>
+    <Box className={classes.root}>
       <Box className={classes.inputContainer}>
         {loading ? (
           <LinearProgress color="secondary"></LinearProgress>
         ) : (
           <form onSubmit={handleSubmit(onSubmit)}>
-            <Typography className={classes.welcome}>
-              Welcome to Kite.io
-            </Typography>
-            <Typography className={classes.loginHeader}>
-              Login to your account
-            </Typography>
+            <Typography className={classes.welcome}>Kite Connect</Typography>
+            {/* <Typography className={classes.loginHeader}>
+              Please login to continue
+            </Typography> */}
             <Box className={classes.feildContainer}>
               <Input
+                placeholder="User Name"
                 style={{
+                  position: "relative",
+                  padding: "0.5em",
                   color: "offwhite",
-                  borderRadius: "5px",
+                  borderRadius: "10px",
                   marginTop: "1.2em",
                   backgroundColor: "rgba(237, 237, 237, 0.5)",
                 }}
@@ -131,10 +130,14 @@ const LoginForm = ({ setIsLogin }) => {
               </Typography>
               <br></br>
               <Input
+                placeholder="Password"
                 style={{
-                  borderRadius: "5px",
+                  position: "relative",
+                  padding: "0.5em",
+                  borderRadius: "10px",
                   marginTop: "-0.5em",
                   backgroundColor: "rgba(237, 237, 237, 0.5)",
+                  marginBottom: "1.2em",
                 }}
                 {...register("password")}
                 InputProps={{
@@ -154,10 +157,12 @@ const LoginForm = ({ setIsLogin }) => {
                     </InputAdornment>
                   ),
                 }}
-              />
-              <Typography>{errors.password?.message}</Typography>
-
+              />{" "}
+              <Typography className={classes.passwordHelperText}>
+                {errors.password?.message}
+              </Typography>
               <Button
+                variant="contained"
                 className={classes.loginButton}
                 type="submit"
                 disabled={loading}
@@ -173,7 +178,7 @@ const LoginForm = ({ setIsLogin }) => {
             </Box>
           </form>
         )}
-        {authContext.authUser ? (
+        {/* {authContext.authUser ? (
           <>
             <h1> authUser Logged In!</h1>
             <pre>{JSON.stringify(authContext.authUser)}</pre>
@@ -185,7 +190,7 @@ const LoginForm = ({ setIsLogin }) => {
           <h1> Token Logged In!{JSON.stringify(authContext.token)}</h1>
         ) : (
           <h1>Token Not Logged in</h1>
-        )}
+        )} */}
       </Box>
     </Box>
   )

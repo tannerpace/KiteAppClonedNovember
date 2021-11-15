@@ -12,8 +12,8 @@ const Index = () => {
   return (
     <Page>
       <Box
-        height="60vh"
-        width="60vw"
+        height="100vh"
+        width="100vw"
         display="flex"
         alignItems="center"
         justifyContent="center"

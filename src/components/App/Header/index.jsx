@@ -13,12 +13,13 @@ import { useContext } from "react"
 import { useHistory, useLocation } from "react-router-dom"
 
 import PositionedMenu from "../PositionedMenu"
+import useStyles from "./styles"
 
 const Header = () => {
   const appContext = useContext(AppContext)
   const history = useHistory()
   const location = useLocation()
-
+  const classes = useStyles()
   const handleNavLogin = () => {
     if (location.pathname === "/login") {
       appContext.openSnackBar({ message: "You are at login page!" })

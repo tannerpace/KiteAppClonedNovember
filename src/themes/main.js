@@ -2,13 +2,13 @@ import { createTheme as createMuiTheme } from "@material-ui/core/styles"
 
 const primary = {
   dark: "#6a0080",
-  main: "#9c27b0",
+  main: "#0e101c",
   light: "#d05ce3",
 }
 const secondary = {
-  main: "#00bcd4",
-  light: "#62efff",
-  dark: "#008ba3",
+  main: "#bf1650",
+  light: "#4f6294",
+  dark: "#0f111b",
 }
 const error = {
   main: "#F84738",
@@ -16,8 +16,22 @@ const error = {
 const text = {
   primary: "#190e28",
 }
+const colors = {
+  secondary: "#bf1640",
+  lightPink: "#ec5590",
+  primaryDark: "#0e101c",
+  blue: "#1e2a4a",
+  buttonBlue: "#191d3a",
+  lightBlue: "#516391",
+  purple: "#0f111b",
+  link: "#ff7aa8",
+  error: "#fc0061",
+}
 
-const spacing = (factor) => factor * 8
+const spacing = (factor) => {
+  const space = factor * 16
+  return `${space}px`
+}
 
 export default createMuiTheme({
   spacing,
@@ -26,9 +40,22 @@ export default createMuiTheme({
     secondary,
     text,
     error,
+    colors,
+    spacing,
   },
   typography: {
-    fontFamily: ["Barlow", "sans-serif"].join(","),
+    fontFamily: [
+      "Barlow",
+      "sans-serif",
+      "Segoe UI",
+      "Roboto",
+      "Oxygen",
+      "Ubuntu",
+      "Cantarell",
+      "Fira Sans",
+      "Droid Sans",
+      "Helvetica Neue",
+    ].join(","),
     h1: {
       fontWeight: 700, // bold
       fontSize: "2.6rem",

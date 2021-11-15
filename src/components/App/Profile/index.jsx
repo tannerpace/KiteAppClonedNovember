@@ -14,7 +14,7 @@ createStore({})
 function Profile() {
   return (
     <StateMachineProvider>
-      <h1>Page Form Wizzard</h1>
+      <h1>Update Your Status</h1>
 
       <Router>
         <Route exact path="/profile" component={Step1} />

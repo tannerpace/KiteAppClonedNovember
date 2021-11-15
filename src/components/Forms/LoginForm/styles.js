@@ -3,6 +3,21 @@ import { makeStyles } from "@material-ui/core/styles"
 import ronephoto from "../../../assets/ronephoto.png"
 
 const styles = makeStyles((theme) => ({
+  p: {
+    color: "#bf1650",
+  },
+  root: {
+    display: "flex",
+    height: "100vh",
+    marginTop: theme.spacing(2),
+    boxShadow: "0px 0px 40px #323232",
+    backgroundColor: "	hsl(223, 28%, 14%)",
+    background:
+      "linear-gradient(45deg, rgba(254, 107, 255, .5) 30%, #FF8E12 90%)",
+    borderRadius: "10px",
+    width: "90%",
+    padding: theme.spacing(3),
+  },
   welcome: {
     textAlign: "center",
     fontSize: "5rem !important",
@@ -29,11 +44,14 @@ const styles = makeStyles((theme) => ({
     width: "100%",
     justifyContent: "center",
     border: ".5px solid #000000",
+    borderRadius: "1.1rem",
+    margin: "auto ",
+    boxShadow: "0px 0px 10px #0022ff",
   },
   feildContainer: {
     margin: "0 auto",
-    marginTop: theme.spacing(2),
-    marginBottom: theme.spacing(10),
+    marginTop: theme.spacing(1),
+    marginBottom: theme.spacing(3),
     alignSelf: "center",
     display: "flex",
     flexDirection: "column",
@@ -42,31 +60,43 @@ const styles = makeStyles((theme) => ({
     backgroundPosition: "fit",
     backgroundRepeat: "no-repeat",
     // height: "calc(100% - 800px)",
-    width: "300px",
+    width: "330px",
     justifyContent: "center",
-    padding: "0px",
+    padding: theme.spacing(2),
     backgroundColor: "rgba(0,0,0,0.5)",
     borderRadius: "10px",
   },
 
   formHelperText: {
-    position: "absolute",
+    position: "relative",
     marginLeft: 0,
-    color: theme.palette.error.main,
+    content: "⚠ ",
+    color: theme.palette.colors.error,
+  },
+  passwordHelperText: {
+    position: "relative",
+
+    marginLeft: 0,
+    content: "⚠ ",
+    color: theme.palette.colors.error,
   },
 
   loginButton: {
-    margin: "auto",
-    marginTop: theme.spacing(2),
+    transition: "all .3s ease-in-out",
+    padding: "25px !important",
+    marginTop: "10px",
     height: "35px",
-    marginBottom: theme.spacing(2),
-    backgroundColor: theme.palette.primary.main,
+    margin: theme.spacing(8, 0, 0, 0),
+    backgroundColor: "#ff7aa8 !important",
     color: "white !important",
     textShadow: ".5px .5px .5px #000000",
-    width: "180px",
-    "&: hover": {
-      color: theme.palette.primary.contrastText,
-      backgroundColor: theme.palette.secondary.dark,
+    width: theme.spacing(12),
+    fontSize: "1.2rem !important",
+    fontWeight: "bold",
+
+    "&:hover": {
+      backgroundColor: "#ec5990 !important",
+      color: "white !important",
     },
   },
 
@@ -76,7 +106,8 @@ const styles = makeStyles((theme) => ({
     lineHeight: "1.66",
     display: "flex",
     width: "100%",
-    marginBottom: theme.spacing(3),
+    marginBottom: theme.spacing(6),
+    padding: theme.spacing(1),
     alignContent: "flex-end",
     color: theme.palette.primary.contrastText,
     "&:hover": {
