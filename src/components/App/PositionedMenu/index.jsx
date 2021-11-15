@@ -3,23 +3,37 @@ import Menu from "@material-ui/core/Menu"
 import MenuItem from "@material-ui/core/MenuItem"
 import MenuIcon from "@mui/icons-material/Menu"
 import IconButton from "@mui/material/IconButton"
+import AppContext from "contexts/App"
 import PropTypes from "prop-types"
 import React from "react"
+import { useContext } from "react"
 import { useHistory } from "react-router"
 const PositionedMenu = () => {
   const [anchorEl, setAnchorEl] = React.useState(null)
   const history = useHistory()
   const open = Boolean(anchorEl)
+  const appContext = useContext(AppContext)
 
   const handleClick = (event) => {
-    if (anchorEl === null) {
-      setAnchorEl(event.currentTarget)
+    if (appContext.authUser) {
+      if (anchorEl === null) {
+        setAnchorEl(event.currentTarget)
+      } else {
+        setAnchorEl(null)
+      }
+    } else if (history.location.pathname !== "/login") {
+      history.push("/login")
     } else {
-      setAnchorEl(null)
+      appContext.openSnackBar({ message: "Please login first" })
     }
   }
   const handleClose = () => {
     setAnchorEl(null)
+  }
+
+  const handleLogOut = () => {
+    handleClose()
+    appContext.handleLogOut()
   }
 
   const navToProfile = () => {
@@ -57,9 +71,9 @@ const PositionedMenu = () => {
           horizontal: "right",
         }}
       >
-        <MenuItem onClick={navToProfile}>Profile</MenuItem>
-        <MenuItem onClick={handleClose}>My account</MenuItem>
-        <MenuItem onClick={handleClose}>Logout</MenuItem>
+        <MenuItem onClick={navToProfile}>Update Profile</MenuItem>
+        <MenuItem onClick={handleClose}>Messages</MenuItem>
+        <MenuItem onClick={handleLogOut}>Logout</MenuItem>
       </Menu>
     </div>
   )

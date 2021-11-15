@@ -103,82 +103,86 @@ const LoginForm = ({ setIsLogin }) => {
 
   return (
     <Box className={classes.root}>
-      <Box className={classes.inputContainer}>
-        {loading ? (
-          <LinearProgress color="secondary"></LinearProgress>
-        ) : (
-          <form onSubmit={handleSubmit(onSubmit)}>
-            <Typography className={classes.welcome}>Kite Connect</Typography>
-            {/* <Typography className={classes.loginHeader}>
+      <Box className={classes.wrapper}>
+        <Box className={classes.inputContainer}>
+          {loading ? (
+            <LinearProgress color="secondary"></LinearProgress>
+          ) : (
+            <form onSubmit={handleSubmit(onSubmit)}>
+              <Typography className={classes.welcome}>Kite Connect</Typography>
+              {/* <Typography className={classes.loginHeader}>
               Please login to continue
             </Typography> */}
-            <Box className={classes.feildContainer}>
-              <Input
-                placeholder="User Name"
-                style={{
-                  position: "relative",
-                  padding: "0.5em",
-                  color: "offwhite",
-                  borderRadius: "10px",
-                  marginTop: "1.2em",
-                  backgroundColor: "rgba(237, 237, 237, 0.5)",
-                }}
-                {...register("userName")}
-              />
-              <Typography className={classes.formHelperText}>
-                {errors.userName?.message}
-              </Typography>
-              <br></br>
-              <Input
-                placeholder="Password"
-                style={{
-                  position: "relative",
-                  padding: "0.5em",
-                  borderRadius: "10px",
-                  marginTop: "-0.5em",
-                  backgroundColor: "rgba(237, 237, 237, 0.5)",
-                  marginBottom: "1.2em",
-                }}
-                {...register("password")}
-                InputProps={{
-                  endAdornment: (
-                    <InputAdornment position="end">
-                      <IconButton
-                        edge="end"
-                        size="small"
-                        onClick={() => setVisibility(!visibility)}
-                      >
-                        {visibility ? (
-                          <VisibilityIcon color="primary" fontSize="small" />
-                        ) : (
-                          <VisibilityOffIcon color="primary" fontSize="small" />
-                        )}
-                      </IconButton>
-                    </InputAdornment>
-                  ),
-                }}
-              />{" "}
-              <Typography className={classes.passwordHelperText}>
-                {errors.password?.message}
-              </Typography>
-              <Button
-                variant="contained"
-                className={classes.loginButton}
-                type="submit"
-                disabled={loading}
-              >
-                Login
-              </Button>
-              <br></br>
-              <Link to="/signup">
-                <Typography className={classes.noAccount}>
-                  No Account? Click Here
+              <Box className={classes.feildContainer}>
+                <Input
+                  placeholder="User Name"
+                  style={{
+                    position: "relative",
+                    padding: "0.5em",
+                    color: "offwhite",
+                    borderRadius: "10px",
+                    marginTop: "1.2em",
+                    backgroundColor: "rgba(237, 237, 237, 0.5)",
+                  }}
+                  {...register("userName")}
+                />
+                <Typography className={classes.formHelperText}>
+                  {errors.userName?.message}
                 </Typography>
-              </Link>
-            </Box>
-          </form>
-        )}
-        {/* {authContext.authUser ? (
+                <br></br>
+                <Input
+                  placeholder="Password"
+                  style={{
+                    position: "relative",
+                    padding: "0.5em",
+                    borderRadius: "10px",
+                    marginTop: "-0.5em",
+                    backgroundColor: "rgba(237, 237, 237, 0.5)",
+                    marginBottom: "1.2em",
+                  }}
+                  {...register("password")}
+                  InputProps={{
+                    endAdornment: (
+                      <InputAdornment position="end">
+                        <IconButton
+                          edge="end"
+                          size="small"
+                          onClick={() => setVisibility(!visibility)}
+                        >
+                          {visibility ? (
+                            <VisibilityIcon color="primary" fontSize="small" />
+                          ) : (
+                            <VisibilityOffIcon
+                              color="primary"
+                              fontSize="small"
+                            />
+                          )}
+                        </IconButton>
+                      </InputAdornment>
+                    ),
+                  }}
+                />{" "}
+                <Typography className={classes.passwordHelperText}>
+                  {errors.password?.message}
+                </Typography>
+                <Button
+                  variant="contained"
+                  className={classes.loginButton}
+                  type="submit"
+                  disabled={loading}
+                >
+                  Login
+                </Button>
+                <br></br>
+                <Link to="/signup">
+                  <Typography className={classes.noAccount}>
+                    No Account? Click Here
+                  </Typography>
+                </Link>
+              </Box>
+            </form>
+          )}
+          {/* {authContext.authUser ? (
           <>
             <h1> authUser Logged In!</h1>
             <pre>{JSON.stringify(authContext.authUser)}</pre>
@@ -191,6 +195,7 @@ const LoginForm = ({ setIsLogin }) => {
         ) : (
           <h1>Token Not Logged in</h1>
         )} */}
+        </Box>
       </Box>
     </Box>
   )

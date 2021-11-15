@@ -139,6 +139,9 @@ export const AppContainer = ({ children }) => {
       clear().finally(() => {
         window.location.href = "/"
       })
+      openSnackBar({
+        message: "You have been logged out",
+      })
     }
   }
 

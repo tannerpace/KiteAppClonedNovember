@@ -34,7 +34,7 @@ const Header = () => {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
+      <AppBar position="static" className={classes.header}>
         <Toolbar>
           <PositionedMenu />
 
@@ -43,12 +43,11 @@ const Header = () => {
           </Typography>
           {appContext?.authUser ? (
             <Button onClick={handleLogOut} color="inherit">
-              {appContext?.authUser.userName} Logout
+              {appContext?.authUser.userName && history.location !== "/login"}{" "}
+              {appContext?.authUser.userName} Logged In
             </Button>
           ) : (
-            <Button onClick={handleNavLogin} color="inherit">
-              Login
-            </Button>
+            <></>
           )}
         </Toolbar>
       </AppBar>

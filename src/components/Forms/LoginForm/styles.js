@@ -8,14 +8,28 @@ const styles = makeStyles((theme) => ({
   },
   root: {
     display: "flex",
+    alignItems: "flex-start",
+    justifyContent: "center",
+    width: "100%",
     height: "100vh",
-    marginTop: theme.spacing(2),
+    backgroundColor: "	hsl(223, 28%, 14%)",
+    background:
+      "linear-gradient(45deg,  #FF8E12 90%,rgba(254, 107, 255, .5) 30%,)",
+
+    padding: theme.spacing(0.7),
+  },
+  wrapper: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    width: "100%",
+
     boxShadow: "0px 0px 40px #323232",
     backgroundColor: "	hsl(223, 28%, 14%)",
     background:
-      "linear-gradient(45deg, rgba(254, 107, 255, .5) 30%, #FF8E12 90%)",
+      "linear-gradient(45deg, rgba(254, 107, 255, .3) 30%, #FF8E12 90%)",
     borderRadius: "10px",
-    width: "90%",
+
     padding: theme.spacing(3),
   },
   welcome: {
@@ -42,6 +56,7 @@ const styles = makeStyles((theme) => ({
     backgroundPosition: "fill",
     backgroundRepeat: "no-repeat",
     width: "100%",
+    minWidth: "340px",
     justifyContent: "center",
     border: ".5px solid #000000",
     borderRadius: "1.1rem",
