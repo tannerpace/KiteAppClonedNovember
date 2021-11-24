@@ -15,7 +15,7 @@ export const routeConfig = [
   {
     "path": "/",
     "exact": true,
-    "component": "KitchenSink"
+    "component": "Login"
   },
   {
     "path": "/kitchen-sink",
